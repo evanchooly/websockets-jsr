@@ -1,17 +1,37 @@
 package org.jsr.websockets;
 
-public interface WebSocketContext extends WebSocketListener {
-   void send(String data, boolean last);
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
-   void send(byte[] data, boolean last);
+import org.jsr.servlet.UpgradeException;
+import org.jsr.servlet.UpgradeHandler;
 
-   void close();
+public abstract class WebSocketContext implements UpgradeHandler, WebSocketListener {
+    @Override
+    public final void doUpgrade(ServletRequest request, ServletResponse response) throws UpgradeException {
+       // websocket handshake logic done here
+    }
 
-   void close(int code, String reason);
+    public void customizeHandshake(ServletRequest request, ServletResponse response) {
+    }
 
-   boolean isConnected();
+    public WebSocket createContext(ServletRequest request, ServletResponse response) {
+        return new DefaultWebSocket(request, response);
+    }
 
-   boolean add(WebSocketListener listener);
+    @Override
+    public void onConnect(WebSocket socket) {
+    }
 
-   boolean remove(WebSocketListener listener);
+    @Override
+    public void onMessage(WebSocket socket, String text, boolean last) {
+    }
+
+    @Override
+    public void onMessage(WebSocket socket, byte[] data, boolean last) {
+    }
+
+    @Override
+    public void onClose(WebSocket socket, int code, String reason) {
+    }
 }

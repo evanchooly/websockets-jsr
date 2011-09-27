@@ -1,11 +1,11 @@
 package org.jsr.websockets;
 
 public interface WebSocketListener {
-    void onConnect();
+    void onConnect(WebSocket socket);
 
-    void onMessage(String text, boolean last);
+    void onMessage(WebSocket socket, String text, boolean last);
 
-    void onMessage(byte[] data, boolean last);
+    void onMessage(WebSocket socket, byte[] data, boolean last);
 
-    void onClose(int code, String reason);
+    void onClose(WebSocket socket, int code, String reason);
 }

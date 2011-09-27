@@ -5,6 +5,15 @@
     <groupId>org.jsr.websockets</groupId>
     <artifactId>jsr-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <version>6.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <packaging>pom</packaging>
 
     <name>jsr-parent</name>
@@ -38,13 +47,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>
