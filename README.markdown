@@ -1,3 +1,14 @@
+# Require rubygems if necessary
+require 'rubygems'
+
+# Require the Gollum library
+require 'gollum'
+
+# Create a new Gollum::Wiki object by initializing it with the path to the
+# Git repository.
+wiki = Gollum::Wiki.new("my-gollum-repo.git")
+# => <Gollum::Wiki>
+
 WebSockets and Java EE
 ======================
 
